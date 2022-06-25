@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "454113483477",
+    "project_id": "practica-final-a1f1e",
+    "storage_bucket": "practica-final-a1f1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454113483477:android:2fc1f2b262097f394e605c",
+        "android_client_info": {
+          "package_name": "cat.tecnocampus.mobileapps.practicafinal.DavidJimenezBelmonte.AlbertSaenzAragall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454113483477-2g19baf04b5c5nfqnb4vl24pr7mcah59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5sEiZFRnYrktMpzliSC7RAevEDwyN-9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454113483477-2g19baf04b5c5nfqnb4vl24pr7mcah59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
