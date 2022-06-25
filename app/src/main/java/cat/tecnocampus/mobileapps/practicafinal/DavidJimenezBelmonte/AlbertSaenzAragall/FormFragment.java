@@ -58,7 +58,7 @@ public class FormFragment extends Fragment {
     }
 
     private boolean checkName(String word) {
-        if(word == ""){
+        if(word.length() < 1){
             nameField.setText("");
             nameField.setError("El nombre no puede estar vacío");
             return false;
@@ -75,9 +75,9 @@ public class FormFragment extends Fragment {
     }
 
     private boolean checkSurname(String word) {
-        if(word == ""){
-            nameField.setText("");
-            nameField.setError("El apellido no puede estar vacío");
+        if(word.length() < 1){
+            surnameField.setText("");
+            surnameField.setError("El apellido no puede estar vacío");
             return false;
         }
         char[] chars = word.toCharArray();
@@ -92,7 +92,7 @@ public class FormFragment extends Fragment {
     }
 
     private boolean checkYear(String year) {
-        if(year == ""){
+        if(year.length() < 1){
             yearField.setText("");
             yearField.setError("El año no puede estar vacío");
             return false;
