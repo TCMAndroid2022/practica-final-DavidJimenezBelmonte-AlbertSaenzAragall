@@ -47,12 +47,6 @@ public class FormFragment extends Fragment {
                     fragmentTransaction.replace(R.id.fragmentContainer, new ResultFragment());
                     fragmentTransaction.commit();
                 }
-                else
-                {
-                    Toast toast = Toast.makeText(getContext(), "ALGO HA IDO MAL", Toast.LENGTH_SHORT);
-                    toast.show();
-                    //AlertDialog?
-                }
             }
         });
 
@@ -60,13 +54,37 @@ public class FormFragment extends Fragment {
     }
 
     private boolean checkFields(String name, String surname, String year){
-        return checkNames(name) && checkNames(surname) && checkYear(year);
+        return checkName(name) && checkSurname(surname) && checkYear(year);
     }
 
-    private boolean checkNames(String word) {
+    private boolean checkName(String word) {
+        if(word == ""){
+            nameField.setText("");
+            nameField.setError("El nombre no puede estar vacío");
+            return false;
+        }
         char[] chars = word.toCharArray();
         for(char c : chars){
             if (Character.isDigit(c)){
+                nameField.setText("");
+                nameField.setError("Aqui hay k mirar como meterlo con el @string para los idiomas");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkSurname(String word) {
+        if(word == ""){
+            nameField.setText("");
+            nameField.setError("El apellido no puede estar vacío");
+            return false;
+        }
+        char[] chars = word.toCharArray();
+        for(char c : chars){
+            if (Character.isDigit(c)){
+                surnameField.setText("");
+                surnameField.setError("Aqui hay k mirar como meterlo con el @string para los idiomas");
                 return false;
             }
         }
@@ -74,11 +92,25 @@ public class FormFragment extends Fragment {
     }
 
     private boolean checkYear(String year) {
-        if(!(year.matches("[0-9]+"))) return false;
+        if(year == ""){
+            yearField.setText("");
+            yearField.setError("El año no puede estar vacío");
+            return false;
+        }
+
+        if(!(year.matches("[0-9]+"))){
+            yearField.setText("");
+            yearField.setError("El año debería estar sólo compuesto por números");
+            return false;
+        }
 
         int yearInt = Integer.parseInt(year);
 
-        if(yearInt > 2022 || yearInt < 1900) return false;
+        if(yearInt > 2022 || yearInt < 1900){
+            yearField.setText("");
+            yearField.setError("El año debe ser un número entre 1900 y 2022");
+            return false;
+        }
 
         return true;
     }
