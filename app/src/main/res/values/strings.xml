@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Practica_Final</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Apellidos">Apellido/s</string>
+    <string name="Año">Año de nacimiento</string>
+    <string name="Título">¿Qué personaje de Star Wars eres?</string>
+    <string name="Enviar">Enviar</string>
 </resources>

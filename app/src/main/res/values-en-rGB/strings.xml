@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Practica_Final</string>
+    <string name="Nombre">Name</string>
+    <string name="Apellidos">Surname/s</string>
+    <string name="Año">Year of birth</string>
+    <string name="Título">Which Star Wars character are you?</string>
+    <string name="Enviar">Submit</string>
+</resources>
