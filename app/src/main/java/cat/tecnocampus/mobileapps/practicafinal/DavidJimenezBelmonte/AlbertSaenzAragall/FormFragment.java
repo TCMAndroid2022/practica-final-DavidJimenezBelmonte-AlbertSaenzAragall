@@ -60,14 +60,14 @@ public class FormFragment extends Fragment {
     private boolean checkName(String word) {
         if(word.length() < 1){
             nameField.setText("");
-            nameField.setError("El nombre no puede estar vacío");
+            nameField.setError(getText(R.string.ErrorNombre1));
             return false;
         }
         char[] chars = word.toCharArray();
         for(char c : chars){
             if (Character.isDigit(c)){
                 nameField.setText("");
-                nameField.setError("Aqui hay k mirar como meterlo con el @string para los idiomas");
+                nameField.setError(getText(R.string.ErrorNombre2));
                 return false;
             }
         }
@@ -77,14 +77,14 @@ public class FormFragment extends Fragment {
     private boolean checkSurname(String word) {
         if(word.length() < 1){
             surnameField.setText("");
-            surnameField.setError("El apellido no puede estar vacío");
+            surnameField.setError(getText(R.string.ErrorApellido1));
             return false;
         }
         char[] chars = word.toCharArray();
         for(char c : chars){
             if (Character.isDigit(c)){
                 surnameField.setText("");
-                surnameField.setError("Aqui hay k mirar como meterlo con el @string para los idiomas");
+                surnameField.setError(getText(R.string.ErrorApellido2));
                 return false;
             }
         }
@@ -94,13 +94,13 @@ public class FormFragment extends Fragment {
     private boolean checkYear(String year) {
         if(year.length() < 1){
             yearField.setText("");
-            yearField.setError("El año no puede estar vacío");
+            yearField.setError(getText(R.string.ErrorAño1));
             return false;
         }
 
         if(!(year.matches("[0-9]+"))){
             yearField.setText("");
-            yearField.setError("El año debería estar sólo compuesto por números");
+            yearField.setError(getText(R.string.ErrorAño2));
             return false;
         }
 
@@ -108,7 +108,7 @@ public class FormFragment extends Fragment {
 
         if(yearInt > 2022 || yearInt < 1900){
             yearField.setText("");
-            yearField.setError("El año debe ser un número entre 1900 y 2022");
+            yearField.setError(getText(R.string.ErrorAño3));
             return false;
         }
 

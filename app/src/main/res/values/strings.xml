@@ -7,4 +7,11 @@
     <string name="Año">Año de nacimiento</string>
     <string name="Título">¿Qué personaje de Star Wars eres?</string>
     <string name="Enviar">Enviar</string>
+    <string name="ErrorAño3">El año de nacimiento debe ser un número entre 1900 y 2022</string>
+    <string name="ErrorAño2">El año debería estar sólo compuesto por números</string>
+    <string name="ErrorAño1">El año no puede estar vacío</string>
+    <string name="ErrorNombre1">El nombre no puede estar vacío</string>
+    <string name="ErrorNombre2">El nombre no puede contener números</string>
+    <string name="ErrorApellido1">El apellido no puede estar vacío</string>
+    <string name="ErrorApellido2">El apellido no puede contener números</string>
 </resources>

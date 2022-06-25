@@ -6,4 +6,11 @@
     <string name="Año">Year of birth</string>
     <string name="Título">Which Star Wars character are you?</string>
     <string name="Enviar">Submit</string>
+    <string name="ErrorAño3">Year of birth fields must contain a number between 1900 and 2022</string>
+    <string name="ErrorAño2">Year of birth field must be only numbers</string>
+    <string name="ErrorAño1">Year of birth field can\'t be blank</string>
+    <string name="ErrorNombre1">Name field can\'t be blank</string>
+    <string name="ErrorNombre2">Name field can\'t contain numbers</string>
+    <string name="ErrorApellido1">Surname field can\'t be blank</string>
+    <string name="ErrorApellido2">Surname field can\'t contain numbers</string>
 </resources>
