@@ -40,10 +40,7 @@ public class ShowCharactersInfo extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void setStarWarsCharacterInfo() {
-        //aquí irá la API
-        starWarCharactersList.add(new StarWarCharacter("Darth Vader", "3", "Male"));
-        starWarCharactersList.add(new StarWarCharacter("R2D2", "1904", "Robot"));
-        starWarCharactersList.add(new StarWarCharacter("Leia", "27", "Female"));
+    public void setStarWarsCharacterInfo() {
+        starWarCharactersList.addAll(MainActivity.getStarWarCharacterArrayList());
     }
 }

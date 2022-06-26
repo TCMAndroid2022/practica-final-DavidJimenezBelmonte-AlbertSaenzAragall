@@ -14,17 +14,40 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class ResultFragment extends Fragment {
 
     View rootView;
+    ImageView resultImg;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_result, container, false);
+
+        resultImg = rootView.findViewById(R.id.Result_Img);
+
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setHasOptionsMenu(true);
+
+        //pillar numero de fragment 1
+        //do api call
+
+        //cambiar imagen por la de firebase
+        applyImage();
+
         return rootView;
+    }
+
+    private void applyImage() {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference gsReference = storage.getReferenceFromUrl("gs://practica-final-a1f1e.appspot.com/images/img1.jpg");
+
+        Glide.with(this).load(gsReference).into(resultImg);
     }
 
     @Override
