@@ -42,20 +42,11 @@ public class ResultFragment extends Fragment {
         //pillar info pj en indice k llegue -1
 
         //cambiar imagen por la de firebase, el numero es el mismo
-        applyImage();
-        Log.d("ID:", id);
-        Log.d("ID:", id);
-        Log.d("ID:", id);
-        Log.d("ID:", id);
-        Log.d("ID:", id);
-        Log.d("ID:", id);
-        Log.d("ID:", id);
-
 
         return rootView;
     }
 
-    private void applyImage() {
+    private void applyImage(String id) {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference gsReference = storage.getReferenceFromUrl("gs://practica-final-a1f1e.appspot.com/images/img1.jpg");
 
