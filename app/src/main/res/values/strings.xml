@@ -18,4 +18,8 @@
     <string name="CharacterGender">Género:</string>
     <string name="CharacterBirth">Año nacimiento:</string>
     <string name="TituloResult">La Fuerza ha decidido que eres...</string>
+    <string name="Salir">¿Quieres salir?</string>
+    <string name="AlertaSalir">Estás a punto de salir</string>
+    <string name="Ok">Ok</string>
+    <string name="Cancelar">Cancelar</string>
 </resources>

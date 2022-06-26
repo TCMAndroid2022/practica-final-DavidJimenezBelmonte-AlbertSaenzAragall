@@ -5,7 +5,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -13,6 +18,7 @@ public class ShowCharactersInfo extends AppCompatActivity {
 
     private ArrayList<StarWarCharacter> starWarCharactersList;
     private RecyclerView recyclerView;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +34,18 @@ public class ShowCharactersInfo extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        finish();
+         dialog = new AlertDialog.Builder(this).setTitle(R.string.Salir)
+                .setMessage(R.string.AlertaSalir).setPositiveButton(R.string.Ok, null)
+                .setNegativeButton(R.string.Cancelar, null).show();
+
+        Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        positiveButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         return true;
     }
 

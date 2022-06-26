@@ -17,4 +17,8 @@
     <string name="CharacterBirth">Birth year:</string>
     <string name="CharacterGender">Gender:</string>
     <string name="TituloResult">The Force decided that you are...</string>
+    <string name="Salir">Do you want to leave?</string>
+    <string name="AlertaSalir">You are leaving</string>
+    <string name="Ok">Ok</string>
+    <string name="Cancelar">Cancel</string>
 </resources>
