@@ -14,4 +14,7 @@
     <string name="ErrorNombre2">El nombre no puede contener números</string>
     <string name="ErrorApellido1">El apellido no puede estar vacío</string>
     <string name="ErrorApellido2">El apellido no puede contener números</string>
+    <string name="CharacterName">Nombre:</string>
+    <string name="CharacterGender">Género:</string>
+    <string name="CharacterBirth">Año nacimiento:</string>
 </resources>

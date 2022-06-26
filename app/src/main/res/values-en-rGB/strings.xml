@@ -13,4 +13,7 @@
     <string name="ErrorNombre2">Name field can\'t contain numbers</string>
     <string name="ErrorApellido1">Surname field can\'t be blank</string>
     <string name="ErrorApellido2">Surname field can\'t contain numbers</string>
+    <string name="CharacterName">Name:</string>
+    <string name="CharacterBirth">Birth year:</string>
+    <string name="CharacterGender">Gender:</string>
 </resources>
