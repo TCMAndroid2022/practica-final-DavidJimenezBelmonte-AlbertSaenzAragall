@@ -40,7 +40,7 @@ public class ResultFragment extends Fragment {
         Bundle bundle = this.getArguments();
         id = bundle.getString("id");
         //pillar info pj en indice k llegue -1
-
+        applyImage(id);
         //cambiar imagen por la de firebase, el numero es el mismo
 
         return rootView;
