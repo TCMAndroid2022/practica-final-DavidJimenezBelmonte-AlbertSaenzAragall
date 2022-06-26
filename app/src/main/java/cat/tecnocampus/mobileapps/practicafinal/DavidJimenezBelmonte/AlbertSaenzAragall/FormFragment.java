@@ -29,6 +29,8 @@ public class FormFragment extends Fragment {
     String surname;
     String year;
 
+    private ResultFragment resultFragment;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_form, container, false);
@@ -41,6 +43,7 @@ public class FormFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                resultFragment = new ResultFragment();
 
                 nameField = rootView.findViewById(R.id.NombreField);
                 name = nameField.getText().toString();
@@ -52,8 +55,13 @@ public class FormFragment extends Fragment {
                 year = yearField.getText().toString();
 
                 if(checkFields(name, surname, year)){
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", year.substring(3));
+                    resultFragment.setArguments(bundle);
+
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.fragmentContainer, new ResultFragment());
+                    fragmentTransaction.replace(R.id.fragmentContainer, resultFragment);
                     fragmentTransaction.commit();
                 }
             }

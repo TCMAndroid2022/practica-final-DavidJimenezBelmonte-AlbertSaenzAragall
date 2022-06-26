@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         starWarCharacterArrayList = new ArrayList<StarWarCharacter>();
+        initList();
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -63,13 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         gender = response.getString("gender");
                         birthYear = response.getString("birth_year");
 
-                        Log.d("ID:", String.valueOf(id));
-                        Log.d("Nombre:", name);
-                        Log.d("Genero:", gender);
-                        Log.d("Año:", birthYear);
-                        Log.d("*", "****************");
-
-                        starWarCharacterArrayList.add(new StarWarCharacter(name, birthYear, gender));
+                        starWarCharacterArrayList.set(id - 1, new StarWarCharacter(name, birthYear, gender));
 
                     } catch (JSONException ex) {
                         Log.d("SwA", "Error parsing json array");
@@ -92,5 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<StarWarCharacter> getStarWarCharacterArrayList() {
         return starWarCharacterArrayList;
+    }
+
+    private void initList(){
+        for(int i = 0 ; i <10; i++){
+            starWarCharacterArrayList.add(i, new StarWarCharacter("Jabba the Hutt", "1994", "boloncho"));
+        }
     }
 }

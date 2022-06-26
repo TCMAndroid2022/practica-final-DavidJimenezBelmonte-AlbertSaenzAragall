@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ public class ResultFragment extends Fragment {
 
     View rootView;
     ImageView resultImg;
+    private String id = "-1";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,10 +37,20 @@ public class ResultFragment extends Fragment {
         setHasOptionsMenu(true);
 
         //pillar numero de fragment 1
-        //do api call
+        Bundle bundle = this.getArguments();
+        id = bundle.getString("id");
+        //pillar info pj en indice k llegue -1
 
-        //cambiar imagen por la de firebase
+        //cambiar imagen por la de firebase, el numero es el mismo
         applyImage();
+        Log.d("ID:", id);
+        Log.d("ID:", id);
+        Log.d("ID:", id);
+        Log.d("ID:", id);
+        Log.d("ID:", id);
+        Log.d("ID:", id);
+        Log.d("ID:", id);
+
 
         return rootView;
     }
