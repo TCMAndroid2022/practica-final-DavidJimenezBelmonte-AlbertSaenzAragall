@@ -16,4 +16,5 @@
     <string name="CharacterName">Name:</string>
     <string name="CharacterBirth">Birth year:</string>
     <string name="CharacterGender">Gender:</string>
+    <string name="TituloResult">The Force decided that you are...</string>
 </resources>

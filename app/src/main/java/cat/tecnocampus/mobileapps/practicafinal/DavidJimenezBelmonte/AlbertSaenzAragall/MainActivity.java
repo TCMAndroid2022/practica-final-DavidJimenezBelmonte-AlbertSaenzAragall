@@ -89,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
         return starWarCharacterArrayList;
     }
 
+    public static StarWarCharacter getCharacterFromList(int id){
+        return starWarCharacterArrayList.get(id);
+    }
+
     private void initList(){
         for(int i = 0 ; i <10; i++){
             starWarCharacterArrayList.add(i, new StarWarCharacter("Jabba the Hutt", "1994", "boloncho"));

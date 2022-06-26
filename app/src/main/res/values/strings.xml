@@ -17,4 +17,5 @@
     <string name="CharacterName">Nombre:</string>
     <string name="CharacterGender">Género:</string>
     <string name="CharacterBirth">Año nacimiento:</string>
+    <string name="TituloResult">La Fuerza ha decidido que eres...</string>
 </resources>

@@ -6,9 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,12 +24,13 @@ public class ResultFragment extends Fragment {
     View rootView;
     ImageView resultImg;
     private String id = "-1";
+    StarWarCharacter starWarCharacter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_result, container, false);
 
-        resultImg = rootView.findViewById(R.id.Result_Img);
+        resultImg = rootView.findViewById(R.id.Img_Result);
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setHasOptionsMenu(true);
@@ -40,15 +39,26 @@ public class ResultFragment extends Fragment {
         Bundle bundle = this.getArguments();
         id = bundle.getString("id");
         //pillar info pj en indice k llegue -1
-        applyImage(id);
+        if(id.equals("0")){
+            id = "10";
+        }
+        starWarCharacter = MainActivity.getCharacterFromList(Integer.parseInt(id) - 1);
         //cambiar imagen por la de firebase, el numero es el mismo
+        applyImage(id);
 
         return rootView;
     }
 
     private void applyImage(String id) {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference gsReference = storage.getReferenceFromUrl("gs://practica-final-a1f1e.appspot.com/images/img1.jpg");
+        StorageReference gsReference = null;
+
+        if(id.equals("10")){
+            gsReference = storage.getReferenceFromUrl("gs://practica-final-a1f1e.appspot.com/images/img-10.jpg");
+        }
+        else{
+            gsReference = storage.getReferenceFromUrl("gs://practica-final-a1f1e.appspot.com/images/img" + id + ".jpg");
+        }
 
         Glide.with(this).load(gsReference).into(resultImg);
     }
