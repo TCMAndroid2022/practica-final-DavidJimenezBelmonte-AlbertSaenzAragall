@@ -17,7 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class FormFragment extends Fragment {
 
@@ -34,7 +33,7 @@ public class FormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_form, container, false);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setHasOptionsMenu(true);
 
         Button submitBtn = rootView.findViewById(R.id.SubmitBtn);
@@ -77,7 +76,8 @@ public class FormFragment extends Fragment {
             return true;
         }
         if (item.getItemId() == R.id.action_check){
-            Log.i("Caution", "You should be checking");
+            Intent intent = new Intent(getActivity(), ShowCharactersInfo.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

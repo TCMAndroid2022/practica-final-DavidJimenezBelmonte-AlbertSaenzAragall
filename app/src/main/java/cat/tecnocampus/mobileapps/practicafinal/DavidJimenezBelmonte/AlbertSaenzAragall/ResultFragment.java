@@ -41,7 +41,8 @@ public class ResultFragment extends Fragment {
             return true;
         }
         if (item.getItemId() == R.id.action_check){
-            Log.i("Caution", "You should be checking");
+            Intent intent = new Intent(getActivity(), ShowCharactersInfo.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
