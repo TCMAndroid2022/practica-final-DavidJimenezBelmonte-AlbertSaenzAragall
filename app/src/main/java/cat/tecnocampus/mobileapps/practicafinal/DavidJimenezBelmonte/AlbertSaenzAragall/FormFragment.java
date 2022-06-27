@@ -1,6 +1,7 @@
 package cat.tecnocampus.mobileapps.practicafinal.DavidJimenezBelmonte.AlbertSaenzAragall;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,8 @@ public class FormFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setHasOptionsMenu(true);
 
+        int orientation = getResources().getConfiguration().orientation;
+
         Button submitBtn = rootView.findViewById(R.id.SubmitBtn);
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,8 +64,13 @@ public class FormFragment extends Fragment {
                     resultFragment.setArguments(bundle);
 
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.fragmentContainer, resultFragment);
-                    fragmentTransaction.commit();
+                    if(orientation == Configuration.ORIENTATION_LANDSCAPE){
+                        fragmentTransaction.replace(R.id.resultContainer, resultFragment);
+                        fragmentTransaction.commit();
+                    }else{
+                        fragmentTransaction.replace(R.id.fragmentContainer, resultFragment);
+                        fragmentTransaction.commit();
+                    }
                 }
             }
         });

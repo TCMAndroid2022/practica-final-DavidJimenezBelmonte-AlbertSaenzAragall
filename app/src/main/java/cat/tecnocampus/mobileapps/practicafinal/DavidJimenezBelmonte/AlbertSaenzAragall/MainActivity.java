@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         starWarCharacterArrayList = new ArrayList<StarWarCharacter>();
         initList();
+        starWarCharacterArrayList.add(new StarWarCharacter("Hmm... Seems like the Force is still deciding", "1", "male"));
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction2 = fragmentManager.beginTransaction();
         resultFragment = new ResultFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("id", "1");
+        bundle.putString("id", "11");
         resultFragment.setArguments(bundle);
         fragmentTransaction2.replace(R.id.resultContainer, resultFragment);
         fragmentTransaction2.commit();

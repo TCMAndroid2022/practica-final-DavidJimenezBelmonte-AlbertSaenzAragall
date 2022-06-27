@@ -6,7 +6,7 @@
 
     <FrameLayout
         android:id="@+id/formContainer"
-        android:layout_width="200dp"
+        android:layout_width="400dp"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
