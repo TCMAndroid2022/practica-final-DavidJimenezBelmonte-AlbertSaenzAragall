@@ -14,4 +14,9 @@
         <!-- Customize your theme here. -->
         <item name="fontFamily">@font/soloist1</item>
     </style>
+
+    <style name="title">
+        <item name="android:textColor">#1A2127</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
