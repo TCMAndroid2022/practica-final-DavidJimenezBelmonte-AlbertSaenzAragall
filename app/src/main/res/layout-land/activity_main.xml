@@ -13,8 +13,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp">
-    </FrameLayout>
+        android:layout_marginBottom="5dp"></FrameLayout>
 
     <FrameLayout
         android:id="@+id/resultContainer"
@@ -27,7 +26,6 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:layout_toEndOf="@+id/formContainer"
-        android:layout_toRightOf="@+id/formContainer">
-    </FrameLayout>
+        android:layout_toRightOf="@+id/formContainer"></FrameLayout>
 
 </RelativeLayout>
