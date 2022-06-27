@@ -68,13 +68,6 @@ public class ResultFragment extends Fragment {
                 gsReference = storage.getReferenceFromUrl("gs://practica-final-a1f1e.appspot.com/images/img" + id + ".jpg");
                 break;
         }
-        /*if(id.equals("10")){
-            gsReference = storage.getReferenceFromUrl("gs://practica-final-a1f1e.appspot.com/images/img-10.jpg");
-        }
-        else{
-            gsReference = storage.getReferenceFromUrl("gs://practica-final-a1f1e.appspot.com/images/img" + id + ".jpg");
-        }*/
-
         Glide.with(this).load(gsReference).into(resultImg);
     }
 
