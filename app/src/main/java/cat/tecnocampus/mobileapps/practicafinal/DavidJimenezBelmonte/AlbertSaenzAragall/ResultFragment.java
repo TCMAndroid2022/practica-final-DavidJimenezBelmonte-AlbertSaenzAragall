@@ -35,6 +35,10 @@ public class ResultFragment extends Fragment {
         resultImg = rootView.findViewById(R.id.Img_Result);
         characterName = rootView.findViewById(R.id.characterName);
 
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setHasOptionsMenu(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Resultado");
+
         //pillar numero de fragment 1
         Bundle bundle = this.getArguments();
         id = bundle.getString("id");
@@ -66,5 +70,26 @@ public class ResultFragment extends Fragment {
                 break;
         }
         Glide.with(this).load(gsReference).into(resultImg);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.actionmenu, menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if (item.getItemId() == R.id.action_check){
+            Intent intent = new Intent(getActivity(), ShowCharactersInfo.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
