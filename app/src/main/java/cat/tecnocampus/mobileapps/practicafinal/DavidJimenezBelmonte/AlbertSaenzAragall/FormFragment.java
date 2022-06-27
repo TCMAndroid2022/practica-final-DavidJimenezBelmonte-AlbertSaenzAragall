@@ -1,6 +1,8 @@
 package cat.tecnocampus.mobileapps.practicafinal.DavidJimenezBelmonte.AlbertSaenzAragall;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -30,6 +32,8 @@ public class FormFragment extends Fragment {
     String surname;
     String year;
 
+    private SharedPreferences prefs;
+
     private ResultFragment resultFragment;
 
     @Override
@@ -38,6 +42,16 @@ public class FormFragment extends Fragment {
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setHasOptionsMenu(true);
+
+        prefs = getContext().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+        nameField = rootView.findViewById(R.id.NombreField);
+        surnameField = rootView.findViewById(R.id.ApellidosField);
+        yearField = rootView.findViewById(R.id.AñoField);
+
+        nameField.setText(prefs.getString("name", ""));
+        surnameField.setText(prefs.getString("surname", ""));
+        yearField.setText(prefs.getString("year", ""));
 
         int orientation = getResources().getConfiguration().orientation;
 
@@ -48,16 +62,18 @@ public class FormFragment extends Fragment {
 
                 resultFragment = new ResultFragment();
 
-                nameField = rootView.findViewById(R.id.NombreField);
                 name = nameField.getText().toString();
-
-                surnameField = rootView.findViewById(R.id.ApellidosField);
                 surname = surnameField.getText().toString();
-
-                yearField = rootView.findViewById(R.id.AñoField);
                 year = yearField.getText().toString();
 
                 if(checkFields(name, surname, year)){
+
+                    SharedPreferences.Editor editor = prefs.edit();
+
+                    editor.putString("name", name);
+                    editor.putString("surname", surname);
+                    editor.putString("year", year);
+                    editor.commit();
 
                     Bundle bundle = new Bundle();
                     bundle.putString("id", year.substring(3));
