@@ -36,9 +36,6 @@ public class FormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_form, container, false);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        setHasOptionsMenu(true);
-
         int orientation = getResources().getConfiguration().orientation;
 
         Button submitBtn = rootView.findViewById(R.id.SubmitBtn);
@@ -76,27 +73,6 @@ public class FormFragment extends Fragment {
         });
 
         return rootView;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.actionmenu, menu);
-        super.onCreateOptionsMenu(menu,inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            Intent intent = new Intent(getActivity(), MainActivity.class);
-            startActivity(intent);
-            return true;
-        }
-        if (item.getItemId() == R.id.action_check){
-            Intent intent = new Intent(getActivity(), ShowCharactersInfo.class);
-            startActivity(intent);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private boolean checkFields(String name, String surname, String year){
