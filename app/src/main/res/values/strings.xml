@@ -23,4 +23,7 @@
     <string name="Ok">Ok</string>
     <string name="Cancelar">Cancelar</string>
     <string name="provisionalTxt">Hmm...Parece que la fuerza aún esta decidiendo</string>
+    <string name="Resultado">Resultado</string>
+    <string name="Formulario">Formulario</string>
+    <string name="ListaEj">Lista de ejemplos</string>
 </resources>

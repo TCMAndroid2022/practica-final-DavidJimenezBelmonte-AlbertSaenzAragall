@@ -40,7 +40,7 @@ public class ResultFragment extends Fragment {
         resultImg = rootView.findViewById(R.id.Img_Result);
         characterName = rootView.findViewById(R.id.characterName);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Resultado");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getText(R.string.Resultado));
 
         //pillar numero de fragment 1
         Bundle bundle = this.getArguments();

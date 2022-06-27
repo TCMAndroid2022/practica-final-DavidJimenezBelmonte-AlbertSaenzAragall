@@ -40,7 +40,7 @@ public class FormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_form, container, false);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Formulario");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getText(R.string.Formulario));
 
         prefs = getContext().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
 
