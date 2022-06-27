@@ -1,6 +1,7 @@
 package cat.tecnocampus.mobileapps.practicafinal.DavidJimenezBelmonte.AlbertSaenzAragall;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -30,8 +31,12 @@ public class ResultFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_result, container, false);
-
+        int orientation = getResources().getConfiguration().orientation;
+        if(orientation == Configuration.ORIENTATION_LANDSCAPE){
+            rootView = inflater.inflate(R.layout.fragment_result_landscape, container, false);
+        }else{
+            rootView = inflater.inflate(R.layout.fragment_result, container, false);
+        }
         resultImg = rootView.findViewById(R.id.Img_Result);
         characterName = rootView.findViewById(R.id.characterName);
 

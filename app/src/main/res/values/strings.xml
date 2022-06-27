@@ -22,4 +22,5 @@
     <string name="AlertaSalir">Estás a punto de salir</string>
     <string name="Ok">Ok</string>
     <string name="Cancelar">Cancelar</string>
+    <string name="provisionalTxt">Hmm...Parece que la fuerza aún esta decidiendo</string>
 </resources>
