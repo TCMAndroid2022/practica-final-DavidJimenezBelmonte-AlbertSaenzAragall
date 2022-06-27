@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         starWarCharacterArrayList = new ArrayList<StarWarCharacter>();
         initList();
         starWarCharacterArrayList.add(new StarWarCharacter("Hmm... Seems like the Force is still deciding", "1", "male"));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         requestQueue = Volley.newRequestQueue(this);
 
