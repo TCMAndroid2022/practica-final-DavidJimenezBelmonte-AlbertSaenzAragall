@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.telecom.Conference;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     FormFragment formFragment;
+    ResultFragment resultFragment;
+
     private String name;
     private String gender;
     private String birthYear;
@@ -51,7 +55,28 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 1; i <= 10; i++) getStarWarsCharactersAPI(i);
 
         fragmentManager = getSupportFragmentManager();
-        addFormFragment();
+
+        int orientation = getResources().getConfiguration().orientation;
+        if(orientation == Configuration.ORIENTATION_LANDSCAPE){
+            createLandscapeScreen();
+        }else{
+            addFormFragment();
+        }
+    }
+
+    private void createLandscapeScreen() {
+        fragmentTransaction = fragmentManager.beginTransaction();
+        formFragment = new FormFragment();
+        fragmentTransaction.replace(R.id.formContainer, formFragment);
+        fragmentTransaction.commit();
+
+        FragmentTransaction fragmentTransaction2 = fragmentManager.beginTransaction();
+        resultFragment = new ResultFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("id", "1");
+        resultFragment.setArguments(bundle);
+        fragmentTransaction2.replace(R.id.resultContainer, resultFragment);
+        fragmentTransaction2.commit();
     }
 
     private void getStarWarsCharactersAPI(int id) {
