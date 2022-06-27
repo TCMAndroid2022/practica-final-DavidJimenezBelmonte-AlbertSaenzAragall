@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.storage.FirebaseStorage;
@@ -25,12 +26,14 @@ public class ResultFragment extends Fragment {
     ImageView resultImg;
     private String id = "-1";
     StarWarCharacter starWarCharacter;
+    TextView characterName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_result, container, false);
 
         resultImg = rootView.findViewById(R.id.Img_Result);
+        characterName = rootView.findViewById(R.id.characterName);
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setHasOptionsMenu(true);
@@ -43,6 +46,7 @@ public class ResultFragment extends Fragment {
             id = "10";
         }
         starWarCharacter = MainActivity.getCharacterFromList(Integer.parseInt(id) - 1);
+        characterName.setText(starWarCharacter.getName());
         //cambiar imagen por la de firebase, el numero es el mismo
         applyImage(id);
 
