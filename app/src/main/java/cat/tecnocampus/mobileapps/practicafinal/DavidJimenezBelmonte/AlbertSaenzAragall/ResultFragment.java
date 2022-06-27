@@ -37,6 +37,7 @@ public class ResultFragment extends Fragment {
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setHasOptionsMenu(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Resultado");
 
         //pillar numero de fragment 1
         Bundle bundle = this.getArguments();

@@ -43,6 +43,8 @@ public class FormFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setHasOptionsMenu(true);
 
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Formulario");
+
         prefs = getContext().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
 
         nameField = rootView.findViewById(R.id.NombreField);

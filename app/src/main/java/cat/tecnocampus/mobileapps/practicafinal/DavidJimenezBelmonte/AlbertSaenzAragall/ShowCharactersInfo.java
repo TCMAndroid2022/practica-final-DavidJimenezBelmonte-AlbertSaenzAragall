@@ -27,6 +27,7 @@ public class ShowCharactersInfo extends AppCompatActivity {
         setContentView(R.layout.activity_show_characters_info);
         recyclerView = findViewById(R.id.characters_recycler);
         starWarCharactersList = new ArrayList<>();
+        getSupportActionBar().setTitle("Lista de ejemplos");
 
         setStarWarsCharacterInfo();
         setAdapter();
