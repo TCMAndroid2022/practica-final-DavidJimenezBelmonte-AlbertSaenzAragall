@@ -25,10 +25,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-    FormFragment formFragment;
-    ResultFragment resultFragment;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+    private FormFragment formFragment;
+    private ResultFragment resultFragment;
 
     private String name;
     private String gender;
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         starWarCharacterArrayList = new ArrayList<StarWarCharacter>();
         initList();
         starWarCharacterArrayList.add(new StarWarCharacter((String) getText(R.string.provisionalTxt), "1", "male"));
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         requestQueue = Volley.newRequestQueue(this);
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initList(){
         for(int i = 0 ; i <10; i++){
-            starWarCharacterArrayList.add(i, new StarWarCharacter("Jabba the Hutt", "1994", "boloncho"));
+            starWarCharacterArrayList.add(i, new StarWarCharacter("Jabba the Hutt", "1994", "Hutt"));
         }
     }
 }

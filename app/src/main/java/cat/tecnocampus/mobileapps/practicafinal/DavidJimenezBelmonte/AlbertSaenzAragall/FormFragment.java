@@ -1,21 +1,15 @@
 package cat.tecnocampus.mobileapps.practicafinal.DavidJimenezBelmonte.AlbertSaenzAragall;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,14 +17,14 @@ import android.widget.EditText;
 
 public class FormFragment extends Fragment {
 
-    View rootView;
-    EditText nameField;
-    EditText surnameField;
-    EditText yearField;
+    private View rootView;
+    private EditText nameField;
+    private EditText surnameField;
+    private EditText yearField;
 
-    String name;
-    String surname;
-    String year;
+    private String name;
+    private String surname;
+    private String year;
 
     private SharedPreferences prefs;
 
@@ -42,15 +36,10 @@ public class FormFragment extends Fragment {
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getText(R.string.Formulario));
 
-        prefs = getContext().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-
         nameField = rootView.findViewById(R.id.NombreField);
         surnameField = rootView.findViewById(R.id.ApellidosField);
         yearField = rootView.findViewById(R.id.AñoField);
-
-        nameField.setText(prefs.getString("name", ""));
-        surnameField.setText(prefs.getString("surname", ""));
-        yearField.setText(prefs.getString("year", ""));
+        loadPreferences();
 
         int orientation = getResources().getConfiguration().orientation;
 
@@ -67,12 +56,7 @@ public class FormFragment extends Fragment {
 
                 if(checkFields(name, surname, year)){
 
-                    SharedPreferences.Editor editor = prefs.edit();
-
-                    editor.putString("name", name);
-                    editor.putString("surname", surname);
-                    editor.putString("year", year);
-                    editor.commit();
+                    savePreferences();
 
                     Bundle bundle = new Bundle();
                     bundle.putString("id", year.substring(3));
@@ -91,6 +75,22 @@ public class FormFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    private void savePreferences() {
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putString("name", name);
+        editor.putString("surname", surname);
+        editor.putString("year", year);
+        editor.commit();
+    }
+
+    private void loadPreferences() {
+        prefs = getContext().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        nameField.setText(prefs.getString("name", ""));
+        surnameField.setText(prefs.getString("surname", ""));
+        yearField.setText(prefs.getString("year", ""));
     }
 
     private boolean checkFields(String name, String surname, String year){
@@ -137,13 +137,11 @@ public class FormFragment extends Fragment {
             yearField.setError(getText(R.string.ErrorAño1));
             return false;
         }
-
         if(!(year.matches("[0-9]+"))){
             yearField.setText("");
             yearField.setError(getText(R.string.ErrorAño2));
             return false;
         }
-
         int yearInt = Integer.parseInt(year);
 
         if(yearInt > 2022 || yearInt < 1900){
@@ -151,7 +149,6 @@ public class FormFragment extends Fragment {
             yearField.setError(getText(R.string.ErrorAño3));
             return false;
         }
-
         return true;
     }
 }
